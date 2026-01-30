@@ -109,6 +109,9 @@ def _strip_prerelease_build(version: str) -> str:
     match = _SEMVER_RE.match(version)
     if not match:
         raise ValueError(f"Invalid semver version: {version}")
+    prerelease = match.group(4)
+    if prerelease and prerelease.startswith("dev") and not re.match(r"^dev\.\d+$", prerelease):
+        raise ValueError(f"Invalid semver prerelease: {version}")
     return f"{match.group(1)}.{match.group(2)}.{match.group(3)}"
 
 

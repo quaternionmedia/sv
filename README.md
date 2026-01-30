@@ -40,4 +40,5 @@ print(new_version)  # 1.3.0
   - Optional build metadata: `MAJOR.MINOR.PATCH+BUILD`
   - Optional combined prerelease/build: `MAJOR.MINOR.PATCH-PRERELEASE+BUILD`
   - Optional dev suffix: `.devN` or `-dev.N` (appended to the version)
+- Prerelease values that start with `dev` must be exactly `dev.N` (e.g., `1.2.3-dev.4` is valid; `1.2.3-dev.x` is invalid).
 - Bumps always operate on the core version and drop any prerelease/build/dev suffix.
