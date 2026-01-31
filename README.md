@@ -1,34 +1,26 @@
 # Semver Utilities
 
 This package provides reusable version bumping logic for any project that
-needs consistent semver handling. It is intended to be used as a drop in submodule or library.
+needs consistent semver handling. It is intended to be used as a drop in submodule or library and a lightweight wrapper for the semver library.
 
 This module intentionally avoids third-party dependencies for lightweight portability.
 
-## Usage
+## Tutorial
 
-```python
-from sv import get_semver_logic
+Start with the onboarding tutorial in `tutorial.py`. It walks through adopting
+the library by using a repo-local `VERSION` file as the single source of truth,
+then bumping that version with `sv` for repeatable releases.
 
-semver_logic = get_semver_logic()
-semver_logic.parse("1.2.3")
-new_version = semver_logic.bump("1.2.3", "patch")
+To run it:
+
+```bash
+python sv/tutorial.py
 ```
 
-For dev builds:
-
-```python
-result = semver_logic.bump_with_dev("1.2.3.dev4", "dev", is_dev=True)
-print(result.new_version)  # 1.2.3.dev5
-```
-
-For prerelease/build inputs (suffixes are accepted but dropped when bumping):
-
-```python
-semver_logic.parse("1.2.3-alpha.1+build.7")
-new_version = semver_logic.bump("1.2.3-alpha.1", "minor")
-print(new_version)  # 1.3.0
-```
+This will read `VERSION`, increment the dev version, and write the new value
+back to the file. The tutorial keeps the flow minimal so you can drop the same
+pattern into any project that needs consistent versioning without adding
+dependencies or extra tooling.
 
 ## Notes
 
