@@ -14,7 +14,18 @@ truth and uses `tutorial.py` as the working reference.
 python sv/tutorial.py
 ```
 
-This reads `VERSION`, bumps the dev version, and writes it back.
+This reads `VERSION`, bumps the dev version, and writes it back. For a release
+bump, run:
+
+```bash
+python sv/tutorial.py --bump minor --release
+```
+
+To set an explicit version:
+
+```bash
+python sv/tutorial.py --set 1.2.3
+```
 
 ## Recommended structure
 

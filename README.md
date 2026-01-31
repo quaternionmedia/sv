@@ -18,9 +18,21 @@ python sv/tutorial.py
 ```
 
 This will read `VERSION`, increment the dev version, and write the new value
-back to the file. The tutorial keeps the flow minimal so you can drop the same
-pattern into any project that needs consistent versioning without adding
-dependencies or extra tooling.
+back to the file. You can also choose a release bump:
+
+```bash
+python sv/tutorial.py --bump minor --release
+```
+
+Or set an explicit version:
+
+```bash
+python sv/tutorial.py --set 1.2.3
+```
+
+The tutorial keeps the flow minimal so you can drop the same pattern into any
+project that needs consistent versioning without adding dependencies or extra
+tooling.
 
 ## Notes
 
